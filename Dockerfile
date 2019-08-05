@@ -7,9 +7,9 @@ FROM nodered/node-red-docker:0.20.5-slim-v10
 
 USER root
 
-RUN mkdir -p /home/user && \
-    mkdir -p /projects && \
-    chown node-red:node-red /projects /home/user
+RUN mkdir -p /projects && \
+    chgrp node-red:0 /projects && \
+    chmod g+rwX /projects
 
 USER node-red
 
